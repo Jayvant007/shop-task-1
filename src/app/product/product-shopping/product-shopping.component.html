@@ -1,0 +1,38 @@
+
+<div class="container my-5">
+    <div class="row">
+        
+        <div class="col-12 col-lg-12 col-md-12">
+           
+                <h2 class="text-success">Shopping Summary</h2>
+            
+            <table class="table table-striped text-center" *ngIf="shopArray.length; else noArray" >
+                <thead>
+                  <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col" class="align-middle">Quantity</th>
+                    <th scope="col">Price Details</th>
+                    <th scope="col">Order Total</th>
+                    <th scope="col">Order Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  *ngFor="let obj of shopArray; let i = index">
+                    <th scope="row">{{obj.npName}}</th>
+                    <td>{{obj.npQty}}</td>
+                    <td>{{obj.npPrice}}</td>
+                    <td>{{obj.npQty * obj.npPrice}}</td>
+                    <td><button class="btn btn-danger btn-sm" (click)="onCancel(i,obj)">Cancel</button></td>
+                  </tr>
+                  <tr >
+                    <th colspan="3" class="text-right">Order Total</th>
+                    <td class="custom-font">{{totalSum}}</td>
+                  </tr>
+                </tbody>
+              </table>
+           <ng-template #noArray>
+            <h3 class="text-info">To View shopping Cart Please Select Products to add in cart</h3>
+           </ng-template>
+        </div>
+    </div>
+</div>

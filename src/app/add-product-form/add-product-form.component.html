@@ -1,0 +1,33 @@
+<mat-dialog-content>
+  <div class="d-flex flex-row-reverse">
+    <button class="btn btn-danger custom-icon" mat-dialog-close ><i class="fa fa-close"></i></button>
+  </div>
+  <header class="mb-4 "><h1>Fill The Details</h1></header>
+  <form #productForm="ngForm" class="" (submit)="onSubmit()">
+    <div class="form-group">
+      <label for="productName"><h5>Product Name*</h5></label>
+      <input type="text" class="form-control mb-2" id="productName" ngModel name="npName" required #pname="ngModel">
+      <span *ngIf="!pname.valid && pname.touched" class="text-danger">*Please Enter Product Name</span>
+    </div>
+    <div class="form-group">
+      <label for="productPrice"><h5>Product Price*</h5></label>
+      <input type="text" class="form-control mb-2" [class]="!(+pprice.value) ? 'custom-b-red' : null" id="productPrice" ngModel name="npPrice" required #pprice="ngModel">
+      <span  class="text-danger">
+        <ng-container class="text-danger" *ngIf="!pprice.valid && pprice.touched">*Please Enter Product Price</ng-container>
+        <ng-container class="text-danger" *ngIf="pprice.valid && pprice.touched && !+pprice.value">*Please Enter Product Price In Number</ng-container>
+      </span>
+    </div>
+    <div class="form-group">
+        <label for="productImage"><h5>Product Image*</h5></label>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" class="form-control mb-2" id="productImage" ngModel name="npImgPath" required #pimage="ngModel">
+        <span class="ml-2">
+          <ng-container class="text-danger" *ngIf="!pimage.valid && pimage.touched">Please provide Image Path </ng-container>
+          <p *ngIf="fileSizeError">Image size should not exceed 100 KB.</p>
+        </span>
+    </div>
+    <div class="d-flex justify-content-end">
+      <button type="submit" mat-dialog-close class="btn btn-primary" [disabled]="!productForm.valid" >Add Product</button>
+      <button type="button" mat-dialog-close class="btn btn-danger ml-4">Cancel</button>
+    </div>
+  </form>
+</mat-dialog-content>

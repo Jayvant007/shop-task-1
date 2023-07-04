@@ -1,0 +1,6 @@
+.custom-icon{
+  box-shadow: none;
+}
+.form-control.ng-pristine.ng-touched,.form-control.ng-dirty.ng-touched.custom-b-red  {
+  border: 1px solid red;
+}

@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3 my-2"  *ngFor="let prod of productArr ; let i = index">
+            <app-product-details  [prodData]="prod" [prodIndex]="i"></app-product-details>
+        </div>
+    </div>
+</div>

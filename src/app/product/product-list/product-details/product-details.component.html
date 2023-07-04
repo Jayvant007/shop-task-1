@@ -1,0 +1,21 @@
+   <div class="card">
+                <div class="card-body text-center">
+                    <figure>
+                        <img [src]="prodData.npImgPath" alt="ProductImage" title="prod" class="w-100 img-custom Iimg-fluid custom-card">
+                        <figcaption class="text-info">
+                            <h3 class="mt-2">{{prodData.npName | uppercase}}</h3>
+                            <h3>Price :  {{prodData.npPrice  | currency : "INR"}}</h3>
+                            <div class="text-center  w-100 
+                        ">
+                        <button class="btn btn-danger btn-sm" (click)="minusByOne()"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                           <input type="text" class="mx-2 mx-md-1 mx-sm-1 text-center w-50 custom-input" [value]=addedQty (blur)="inputOne()" #qty>
+                            
+                            <button class="btn btn-primary btn-sm" (click)="addByOne()"> <i class="fa fa-plus"  aria-hidden="true"></i></button>
+                        </div>
+                        </figcaption>
+                    </figure>
+                    <button class="btn btn-success btn-lg" (click)="OnAddBag()">Add To Bag</button>
+                   
+                </div>
+  </div>
+
